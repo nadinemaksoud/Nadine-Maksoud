@@ -5,12 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nadine Maksoud — Software Engineer, Tripoli</title>
 <meta name="description" content="Portfolio of Nadine Maksoud, a Computer Science professional in Tripoli, Lebanon, working with C++, semantic networks and meta-modeling.">
-<meta name="theme-color" content="#0E0B0A">
+<meta name="theme-color" content="#0B0B0B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Road+Rage&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Road+Rage&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B0B0B;--coal:#1A1A1A;--coal2:#2B2B2B;--dust:#6B675F;--mist:#A39D90;--beige:#D8C9A8;--sand:#B9AA8A;--paper:#F4F1EA;--soft:#E8E2D4;--display:'Road Rage',Georgia,serif;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:1.2rem;line-height:1.75;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(11,11,11,.6),rgba(11,11,11,.6)),url("image.png") center/cover no-repeat}
+a{color:var(--beige);text-decoration:none}
+a:hover{color:var(--paper)}
+:focus-visible{outline:2px solid var(--beige);outline-offset:3px}
+ul,ol{padding:0}
+ul{list-style:none}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;background:var(--ink);padding:.5rem;z-index:99}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:66rem;margin:auto;padding:0 1.5rem}
+
+/* Navigation */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.6rem;background:var(--ink)}
+.mark{font:2.4rem/1 var(--display);color:var(--beige)}
+.site-nav ul{display:flex;gap:1.5rem}
+.site-nav li a{font:1.6rem var(--display);color:var(--soft)}
+.site-nav li a:hover{color:var(--beige)}
+.menu-btn{display:none;background:none;border:0;color:var(--beige);font:1.45rem var(--display);cursor:pointer}
+
+/* Hero */
+.hero{max-width:78rem;margin:auto;padding:8rem 6vw 6rem}
+.issue{display:grid;grid-template-columns:1.25fr .75fr;gap:4rem;align-items:center}
+h1{font:400 clamp(4.5rem,11vw,10rem)/.9 var(--display);color:var(--paper)}
+h1 span{display:block}
+h1 span+span{color:var(--beige);margin-left:.2em}
+.role{font:3rem var(--display);color:var(--sand);margin:1.2rem 0 1.5rem}
+.intro{font:2.3rem/1.5 var(--display);color:var(--soft);max-width:34rem}
+.actions{margin-top:2rem}
+.btn{display:inline-block;font:1.6rem var(--display);padding:.45rem 1.6rem;color:var(--paper);border:1px solid var(--paper)}
+.btn:hover{background:var(--beige);border-color:var(--beige);color:var(--ink)}
+.photo{position:relative}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;filter:grayscale(.55) sepia(.5) contrast(1.1) brightness(.92)}
+.photo::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;background:radial-gradient(circle,rgba(0,0,0,.45) 0 .7px,transparent 1.1px) 0 0/5px 5px}
+
+/* Sections */
+.band{padding:7rem 0}
+.title{font:400 clamp(4.5rem,11vw,9rem)/1 var(--display);color:var(--beige);margin-bottom:3rem}
+h3,h4{font-family:var(--display);font-weight:400;line-height:1.2;color:var(--paper)}
+h3{font-size:2.8rem}
+h4{font-size:3.2rem}
+.meta{color:var(--mist);font-size:1.1rem;margin:.2rem 0 .8rem}
+.when{font:2rem var(--display);color:var(--sand);margin:0}
+.plain{margin-top:.8rem}
+.plain li{position:relative;padding-left:1.3rem;margin:.35rem 0;color:var(--soft)}
+.plain li::before{content:"—";position:absolute;left:0;color:var(--dust)}
+.cols{columns:2;column-gap:2.5rem}
+.feature{max-width:50rem}
+.feature h4{color:var(--beige)}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:3rem}
+.projects li{display:flex;flex-direction:column;gap:.8rem}
+.projects li a{margin-top:auto;font:1.7rem var(--display)}
+.projects li p{color:var(--soft)}
+.entries>li{display:grid;grid-template-columns:13rem 1fr;gap:2rem;margin-bottom:3.5rem}
+.lead{max-width:44rem}
+.lead article{margin-bottom:3.5rem}
+.sub{color:var(--sand);margin:-2rem 0 2.5rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2.5rem}
+.sk-group ul{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.sk-group li{background:var(--coal);color:var(--soft);padding:.2rem .8rem;border:1px solid var(--coal2);font-size:1.1rem}
+.sk-group li.key{background:var(--beige);border-color:var(--beige);color:var(--ink)}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.langs-h{margin-top:2.5rem}
+.langs{color:var(--soft)}
+.certs{margin-top:1rem}
+.certs li{margin-bottom:1.2rem}
+.certs strong{display:block;font-weight:400;color:var(--paper)}
+.certs span{color:var(--mist);font-size:1.1rem}
+
+/* Contact */
+.contact{padding:8rem 0 6rem;text-align:center}
+.big{font:400 clamp(4.5rem,13vw,11rem)/.95 var(--display);color:var(--beige);margin-bottom:2.5rem}
+address{font-style:normal}
+address .name{font:2.6rem var(--display);color:var(--paper)}
+address p{margin:.3rem 0}
+.placeholder{color:var(--dust)}
+.site-footer{padding:2.5rem 1.5rem;text-align:center;color:var(--mist);font-size:1.05rem}
+.site-footer span{color:var(--mist)}
+
+@media(max-width:800px){
+  .menu-btn{display:block}
+  .site-nav nav{position:absolute;top:100%;left:0;right:0;background:var(--ink);display:none;padding:1rem 1.6rem}
+  .site-nav nav.open{display:block}
+  .site-nav ul{flex-direction:column;gap:.6rem}
+  .issue,.entries>li,.edu{grid-template-columns:1fr}
+  .issue{gap:2.5rem}
+  .photo{max-width:22rem}
+  .cols{columns:1}
+  .band{padding:5rem 0}
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var button=document.querySelector('.menu-btn'),nav=document.querySelector('.site-nav nav');
+  button.addEventListener('click',function(){var open=nav.classList.toggle('open');button.setAttribute('aria-expanded',open)});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');button.setAttribute('aria-expanded','false')}});
+});
+</script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to content</a>
@@ -22,8 +122,9 @@
     <ul id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
       <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -33,49 +134,99 @@
 <main>
 <!-- HERO -->
 <section id="home" class="hero">
-  <div class="hero-text">
-    <h1><span>Nadine</span> <span>Maksoud</span></h1>
-    <p class="role">Software Engineer</p>
-    <p class="intro">Experience in C++, meta-modeling, software architecture, and enterprise modeling, with interest in technical education, leadership, and community development.</p>
-    <p class="actions"><a class="btn ghost" href="#contact">Contact</a></p>
+  <div class="issue">
+    <div>
+      <h1><span>Nadine</span> <span>Maksoud</span></h1>
+      <p class="role">Software Engineer</p>
+      <p class="intro">Experience in C++, meta-modeling, software architecture, and enterprise modeling, with interest in technical education, leadership, and community development.</p>
+      <p class="actions"><a class="btn" href="#contact">Contact</a></p>
+    </div>
+    <figure class="portrait">
+      <div class="photo"><img src="nadine-portrait.jpeg" width="864" height="1074" alt="Portrait of Nadine Maksoud."></div>
+    </figure>
   </div>
-  <figure class="portrait">
-    <img src="nadine-portrait.jpg" width="864" height="1074" alt="Portrait of Nadine Maksoud.">
-  </figure>
 </section>
 
 <!-- WORK -->
 <section id="work" class="band">
   <div class="wrap">
     <h2 class="title">Work</h2>
-    <article class="feature reveal">
-      <div>
-        <p class="meta">Intelligile · 2024 – Present</p>
-        <h4>MAP &amp; Semantic Network Engineering</h4>
-        <p>Contributed in the core of the MAP, built semantic networks, and worked on meta-modeling concepts.</p>
-        <ul class="plain">
-            <li>Developed secure C++ tools for CSV file management.</li>
-            <li>Contributed to core engineering of the MAP platform using modern C++ and semantic network technologies.</li>
-            <li>Designed and implemented experimental semantic network models.</li>
-            <li>Developed meta-models for IT Principles and IT Policies based on ITAA and EBMM frameworks.</li>
-            <li>Studied and modeled the OMG Business Motivation Model meta-model.</li>
-            <li>Analyzed and contributed to UML and KerML meta-model syntax, semantics, and structural design.</li>
-          </ul>
-      </div>
+    <article class="feature">
+      <p class="meta">Intelligile · 2024 – Present</p>
+      <h4>Software Engineer</h4>
+      <p>Contributed in the core of the MAP, built semantic networks, and worked on meta-modeling concepts.</p>
+      <ul class="plain">
+        <li>Developed secure C++ tools for CSV file management.</li>
+        <li>Contributed to core engineering of the MAP platform using modern C++ and semantic network technologies.</li>
+        <li>Designed and implemented experimental semantic network models.</li>
+        <li>Developed meta-models for IT Principles and IT Policies based on ITAA and EBMM frameworks.</li>
+        <li>Studied and modeled the OMG Business Motivation Model meta-model.</li>
+        <li>Analyzed and contributed to UML and KerML meta-model syntax, semantics, and structural design.</li>
+      </ul>
     </article>
-    <h3 class="group">Some personal projects</h3>
-    <ul class="projects ornate">
-      <li class="reveal">
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="band">
+  <div class="wrap">
+    <h2 class="title">Leadership and Volunteer</h2>
+    <div class="lead">
+      <article>
+        <h3>UNDP Tripoli Peace Initiative</h3>
+        <p class="meta">Tripoli, Lebanon · 2026</p>
+        <p>Worked with a youth team on community improvement initiatives addressing environmental and urban needs.</p>
+        <ul class="plain">
+          <li>A tree-planting initiative in Bab Al-Ramel</li>
+          <li>A public-space rehabilitation project involving a wall and staircase connecting Bab Al-Ramel and Abou Samra</li>
+          <li>Community project proposals developed with local stakeholders</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Youth Leadership Programme — UNDP</h3>
+        <p class="meta">Tripoli, Lebanon · 2026 – Present</p>
+        <p>Selected as a participant in a youth leadership and social innovation program focused on youth leadership, sustainable community development, and community-driven solutions.</p>
+      </article>
+      <article>
+        <h3>Tajrouba</h3>
+        <p class="meta">Volunteer / Crafts Team Coordinator</p>
+        <p>Coordinated the crafts team, helped organize children's activities and prepare creative educational sessions. I also volunteer with the IT team, delivering sessions for children focused on computer skills and technology basics.</p>
+      </article>
+      <article>
+        <h3>Alemni Foundation</h3>
+        <p class="meta">2023 – 2026</p>
+        <p>I was a student at Alemni and later contributed to organizational activities and educational initiatives. I also served as Art Teacher there from 2024 to 2025.</p>
+      </article>
+      <article>
+        <h3>Sanabel Al Nour</h3>
+        <p class="meta">2023</p>
+        <p>Volunteered in community support activities, including helping distribute food and clothing to people in need.</p>
+      </article>
+      <article>
+        <h3>Leb Relief</h3>
+        <p class="meta">2023 – 2024</p>
+        <p>Participated in community projects and helped coordinate activities between different team members.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="band">
+  <div class="wrap">
+    <h2 class="title">Some personal projects</h2>
+    <ul class="projects">
+      <li>
         <div><h4>MediCare</h4><p class="meta">Software Development</p></div>
         <p>A healthcare-oriented software application developed using C# and ASP.NET, with application pages, database-related components, JavaScript, CSS, and project structure.</p>
         <a href="https://github.com/nadinemaksoud/MediCare" rel="noopener">View on GitHub<span class="sr"> — MediCare</span></a>
       </li>
-      <li class="reveal">
+      <li>
         <div><h4>POS System</h4><p class="meta">Database Application</p></div>
         <p>A point-of-sale application focused on database-oriented software development and application structure.</p>
         <a href="https://github.com/nadinemaksoud/POS-system" rel="noopener">View on GitHub<span class="sr"> — POS System</span></a>
       </li>
-      <li class="reveal">
+      <li>
         <div><h4>Library Management System</h4><p class="meta">PHP / Web Development</p></div>
         <p>A library-oriented web application organized around controllers, models, services, views, and core application components.</p>
         <a href="https://github.com/nadinemaksoud/Library" rel="noopener">View on GitHub<span class="sr"> — Library Management System</span></a>
@@ -85,11 +236,11 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="band alt">
+<section id="experience" class="band">
   <div class="wrap">
     <h2 class="title">Experience</h2>
-    <ol class="entries ornate">
-      <li class="reveal">
+    <ol class="entries">
+      <li>
         <p class="when">Aug 2026 – Present</p>
         <div>
           <h3>Local Lead — NASA Space Apps Challenge</h3>
@@ -109,7 +260,7 @@
           </ul>
         </div>
       </li>
-    <li class="reveal">
+      <li>
         <p class="when">2023</p>
         <div>
           <h3>Front-End Web Development Intern — Grow Smart</h3>
@@ -124,64 +275,13 @@
   </div>
 </section>
 
-<!-- LEADERSHIP -->
-<section id="leadership" class="band">
-  <div class="wrap">
-    <h2 class="title">Leadership and Volunteer</h2>
-    <div class="lead ornate">
-      <article class="reveal l-wide">
-        <h3>UNDP Tripoli Peace Initiative</h3>
-        <p class="meta">Tripoli, Lebanon · 2026</p>
-        <p>Worked with a youth team on community improvement initiatives addressing environmental and urban needs.</p>
-        <ul class="plain">
-          <li>A tree-planting initiative in Bab Al-Ramel</li>
-          <li>A public-space rehabilitation project involving a wall and staircase connecting Bab Al-Ramel and Abou Samra</li>
-          <li>Community project proposals developed with local stakeholders</li>
-        </ul>
-      </article>
-    <article class="reveal">
-        <h3>Youth Leadership Programme — UNDP</h3>
-        <p class="meta">Tripoli, Lebanon · 2026 – Present</p>
-        <p>Selected as a participant in a youth leadership and social innovation program focused on youth leadership, sustainable community development, and community-driven solutions.</p>
-      </article>
-    <article class="reveal">
-        <h3>Tajrouba</h3>
-        <p class="meta">Volunteer / Crafts Team Coordinator</p>
-        <p>Coordinated the crafts team, helped organize children's activities and prepare creative educational sessions. I also volunteer with the IT team, delivering sessions for children focused on computer skills and technology basics.</p>
-      </article>
-    <article class="reveal">
-        <h3>Alemni Foundation</h3>
-        <p class="meta">2023 – 2026</p>
-        <p>I was a student at Alemni and later contributed to organizational activities and educational initiatives. I also served as Art Teacher there from 2024 to 2025.</p>
-      </article>
-    <article class="reveal">
-        <h3>Sanabel Al Nour</h3>
-        <p class="meta">2023</p>
-        <p>Volunteered in community support activities, including helping distribute food and clothing to people in need.</p>
-      </article>
-    <article class="reveal">
-        <h3>Leb Relief</h3>
-        <p class="meta">2023 – 2024</p>
-        <p>Participated in community projects and helped coordinate activities between different team members.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- TEACHING -->
-<section id="teaching" class="band alt teaching">
+<section id="teaching" class="band">
   <div class="wrap">
     <h2 class="title">Teaching</h2>
     <p class="sub">Code and drawing, taught to children.</p>
-    <svg class="sketch" viewBox="0 0 240 120" aria-hidden="true">
-      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-        <path d="M10 100 C50 20, 90 20, 120 60 S190 100, 230 20"/>
-        <path d="M14 106 C54 28, 92 28, 122 66 S192 106, 232 28" opacity=".5"/>
-        <circle cx="120" cy="60" r="5"/><circle cx="230" cy="20" r="5"/><circle cx="10" cy="100" r="5"/>
-      </g>
-    </svg>
-    <ol class="entries ornate">
-      <li class="reveal">
+    <ol class="entries">
+      <li>
         <p class="when">2025</p>
         <div>
           <h3>Programming Teacher — Tri-pulley</h3>
@@ -189,7 +289,7 @@
           <p>Taught computer science to children for six months. Introduced Scratch programming, basic computer concepts, and technology fundamentals.</p>
         </div>
       </li>
-      <li class="reveal">
+      <li>
         <p class="when">2024 – 2025</p>
         <div>
           <h3>Art Teacher — Alemni</h3>
@@ -197,7 +297,7 @@
           <p>Taught drawing, shading, and sketching. Helped students develop creativity, artistic expression, and practical drawing skills.</p>
         </div>
       </li>
-      <li class="reveal">
+      <li>
         <p class="when">Current</p>
         <div>
           <h3>IT Team Volunteer — Tajrouba</h3>
@@ -238,17 +338,17 @@
 </section>
 
 <!-- EDUCATION -->
-<section id="education" class="band alt">
+<section id="education" class="band">
   <div class="wrap">
     <h2 class="title">Education</h2>
     <div class="edu">
-      <div class="reveal">
+      <div>
         <h3>Bachelor of Computer Science</h3>
         <p class="meta">Lebanese University · 2023 – 2026</p>
         <h3 class="langs-h">Languages</h3>
         <p class="langs">Arabic · English · French</p>
       </div>
-      <div class="reveal">
+      <div>
         <h3>Certifications</h3>
         <ul class="certs">
           <li><strong>AWS Certified Cloud Practitioner</strong><span>Amazon Web Services · 2026</span></li>
@@ -271,7 +371,7 @@
       <p><a href="mailto:nadine.maksoud@outlook.com">nadine.maksoud@outlook.com</a></p>
       <p><a href="tel:+96176493037">+961 76493037</a></p>
       <p><a href="https://github.com/nadinemaksoud" rel="noopener">GitHub — github.com/nadinemaksoud</a></p>
-      <!-- Replace the text below with <a href="YOUR-LINKEDIN-URL">LinkedIn</a> -->
+      <!-- Replace the text below with your LinkedIn URL -->
       <p class="placeholder">LinkedIn: [ADD LINK]</p>
     </address>
   </div>
